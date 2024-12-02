@@ -3,6 +3,8 @@ package com.skilldistillery.jpacrime.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.time.format.DateTimeFormatter;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -47,6 +49,16 @@ class CrimeTest {
 	void test_Customer_basic_mapping() {
 		assertNotNull(crime);
 		assertEquals(1, crime.getId());
+		assertEquals("robbery", crime.getTypeOfCrime());
+		
+		assertEquals(2022, crime.getDateOfCrime().getYear());
+		assertEquals(1, crime.getDateOfCrime().getDayOfMonth());
+		assertEquals(1, crime.getDateOfCrime().getMonthValue());
+		
+		assertEquals("bank of america", crime.getDescription());
+		assertEquals("baltimore", crime.getLocationOfCrime());
+		assertEquals("John Doe", crime.getInvestigator());
+		
 	}
 
 }
